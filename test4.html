@@ -66,27 +66,26 @@ console.log("Output " + LetterChanges("hello*3"));
                if (charArray.indexOf(sen[i]) >= 0)
                {
 
-                if ((sen[i]+1 === 'Z') || (sen[i]+1 === 'z')) //jump to the beginning
-                {
-                  cls = cls + 'A';
+                   if ((sen[i]+1 === 'Z') || (sen[i]+1 === 'z')) //jump to the beginning
+                   {
+                     cls = cls + 'A';
+                   }
+
+                   else
+                   {
+                     var tempLet = sen[i];
+                     cls = cls + nextChar(tempLet);
+
+                     function nextChar(letter)
+                       {
+                          return String.fromCharCode(letter.charCodeAt(0) + 1);
+                       }
                 }
 
-                else
-                {
-                  var tempLet = sen[i];
-                  cls = cls + nextChar(tempLet);
+               }
 
 
-                  function nextChar(letter)
-                    {
-                       return String.fromCharCode(letter.charCodeAt(0) + 1);
-                    }
-                }
 
-               };
-
-
-          return cls;
                //don't do anything for symbols and numbers.
 
           }
