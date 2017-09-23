@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Pàgina HTML per poder debugar en Javascript</p>
+
+
+<script>
+//https://coderbyte.com/editor/Letter%20Changes:JavaScript
+
+
+// Using the JavaScript language, have the function LetterChanges(str) take the str
+// parameter being passed and modify it using the following algorithm. Replace every
+// letter in the string with the letter following it in the alphabet (ie. c becomes d,
+// z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and
+// finally return this modified string.
+
+// Sample Test Cases
+// Input:"hello*3"
+// Output:"Ifmmp*3"
+//
+// Input:"fun times!"
+// Output:"gvO Ujnft!"
+
+console.log("Output " + LetterChanges("fun times!"));
+
+  function LetterChanges(sen)
+  {
+      var charArray = chargeChar();
+      var lfstring = letFollow(sen);
+      var result = capitalize(lfstring);
+
+      function chargeChar()
+      ////Charge legal letters
+      {
+
+        var char = [null]
+        ////Lowercase
+        char.push('a');
+	      for (var i = 1; i <= 25 ; i++)
+	          {
+              char.push(nextChar('a', i));
+            }
+         ////Capital letters
+	       char.push('A');
+	      for (var i = 1; i <= 25 ; i++)
+	          {
+		          char.push(nextChar('A', i));
+	          }
+
+          function nextChar(letter, j)
+            {
+               return String.fromCharCode(letter.charCodeAt(0) + j);
+            }
+         return char;
+        }
+
+        /// Clean and split string with semicolon
+
+
+        function letFollow(sen)
+        {
+         var cls = '';
+         for (var i = 0; i<=sen.length-1; i++ )
+         {
+                if (charArray.indexOf(sen[i]) >= 0)
+                {
+
+                   if ((sen[i]+1 === 'Z') || (sen[i]+1 === 'z')) //jump to the beginning
+                   {
+                     cls = cls + 'A';
+                   }
+
+                   else
+                   {
+                     var tempLet = sen[i];
+                     cls = cls + nextChar(tempLet);
+
+                     function nextChar(letter)
+                       {
+                          return String.fromCharCode(letter.charCodeAt(0) + 1);
+                       }
+                   }
+                }
+
+                else
+                {
+                  cls = cls +sen[i];
+                }
+
+         }
+
+       return cls;
+      }
+
+        function capitalize(capLet)
+        {
+        var letters = ['a','e','i','o','u'];
+        var intResult = '';
+         for (var i = 0; i<=capLet.length-1; i++ )
+
+         {
+           if (letters.indexOf(capLet[i]) >= 0)
+              {
+                intResult = intResult + (capLetter(capLet[i]));
+              }
+              else
+              {
+                intResult = intResult + (capLet[i]);
+              }
+
+               function capLetter(letter)
+                       {
+                          return String.fromCharCode(letter.charCodeAt(0) - 32);
+                       }
+
+          }
+          return intResult;
+         }
+
+return result;
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
