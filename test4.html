@@ -22,7 +22,7 @@
 // Input:"fun times!"
 // Output:"gvO Ujnft!"
 
-console.log("Output " + LetterChanges("hello*3"));
+console.log("Output " + LetterChanges("fun times!"));
 
   function LetterChanges(sen)
   {
@@ -43,7 +43,7 @@ console.log("Output " + LetterChanges("hello*3"));
             }
          ////Capital letters
 	       char.push('A');
-	       for (var i = 1; i <= 25 ; i++)
+	      for (var i = 1; i <= 25 ; i++)
 	          {
 		          char.push(nextChar('A', i));
 	          }
@@ -61,10 +61,10 @@ console.log("Output " + LetterChanges("hello*3"));
         function letFollow(sen)
         {
          var cls = '';
-         for (var i = 0; i<=sen.length; i++ )
+         for (var i = 0; i<=sen.length-1; i++ )
          {
-               if (charArray.indexOf(sen[i]) >= 0)
-               {
+                if (charArray.indexOf(sen[i]) >= 0)
+                {
 
                    if ((sen[i]+1 === 'Z') || (sen[i]+1 === 'z')) //jump to the beginning
                    {
@@ -80,33 +80,39 @@ console.log("Output " + LetterChanges("hello*3"));
                        {
                           return String.fromCharCode(letter.charCodeAt(0) + 1);
                        }
+                   }
                 }
 
-               }
+                else
+                {
+                  cls = cls +sen[i];
+                }
 
+         }
 
-
-               //don't do anything for symbols and numbers.
-
-          }
-          return cls;
-        }
+       return cls;
+      }
 
         function capitalize(capLet)
         {
         var letters = ['a','e','i','o','u'];
         var intResult = '';
-         for (var i = 0; i<=capLet.length; i++ )
+         for (var i = 0; i<=capLet.length-1; i++ )
 
          {
            if (letters.indexOf(capLet[i]) >= 0)
               {
-                intResult = intResult + ((capLet[i]-32));
+                intResult = intResult + (capLetter(capLet[i]));
               }
               else
               {
                 intResult = intResult + (capLet[i]);
               }
+
+               function capLetter(letter)
+                       {
+                          return String.fromCharCode(letter.charCodeAt(0) - 32);
+                       }
 
           }
           return intResult;
