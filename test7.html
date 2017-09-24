@@ -19,7 +19,7 @@ Input:"f++d+"
 Output:"false"
 */
 
-console.log("Validation: " + SimpleSymbols("+d+=3=+s+"));
+console.log("Validation: " + SimpleSymbols("f++d+"));
 
   function SimpleSymbols(str) { 
 
@@ -40,29 +40,34 @@ console.log("Validation: " + SimpleSymbols("+d+=3=+s+"));
               //Is legal letter and the first one
               {
                 val = false;
+                i++;
               }
 
               else if (intStr [i] === intStr [intStr.length-1] && charArray.indexOf(intStr[i])>= 0)
               //Is legal letter and the last one
               {
                 val = false;
+                i++;
               }
 
                else if (charArray.indexOf(intStr[i]) < 0)
 
               {
                 val = true;
+                i++;
               }
 
               else if (charArray.indexOf(intStr[i]) >= 0 && intStr[i+1] === "+" && intStr[i-1] === "+" )
 
               {
                 val = true;
+                i++;
               }
 
               else
               {
                 val = false;
+                i++;
               }
 
 
