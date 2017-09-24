@@ -18,10 +18,29 @@ Input:45
 Output:"0:45"
 */
 
-console.log("Validation: " + CheckNums(70,70));
+console.log("Hour and Minuts: " + TimeConvert(126));
 
- function CheckNums(num1,num2) 
+ function TimeConvert(num) 
   { 
+    var hours = 0;
+    var minutes = 0;
+    var result = '';
+
+    hours = Math.trunc(num / 60);
+    minutes = num - (hours * 60);
+
+    if (minutes <= 9) //padding
+
+      {
+         result = hours + ':0' + minutes
+      }
+
+    else
+      {
+        result = hours + ':0' + minutes
+      }
+
+      return result;
     
     
   }
