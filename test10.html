@@ -18,12 +18,30 @@ Input:"hooplah"
 Output:"ahhloop"
 */
 
-console.log("Soup is: " + AlphabetSoup(DavidMonreal));
+
+console.log("Soup is: " + AlphabetSoup('davidmonreal'));
+
 
  function AlphabetSoup(str)
   { 
     
-    
+        var char = [];
+        var result = '';
+        ////Convert str to array
+        
+        for (var i = 0; i <= str.length-1 ; i++)
+            {
+              char.push(str[i]);
+            }
+
+        char.sort();
+
+        for (var i = 0; i <= char.length-1 ; i++)
+            {
+              result = result + char[i];
+            }
+         
+        return result;
     
   }
          
