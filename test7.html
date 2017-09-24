@@ -19,23 +19,92 @@ Input:"f++d+"
 Output:"false"
 */
 
-console.log("Output " + SimpleSymbols("+d+=3=+s+"));
+console.log("Validation: " + SimpleSymbols("+d+=3=+s+"));
 
   function SimpleSymbols(str) { 
 
-  // code goes here  
+    var charArray = chargeChar();
+    var checkVal = checkVal (str)
+
+    return checkVal; 
+    function checkVal (intStr)
+      {
+
+          var i = 0;
+          var val = true;
+
+
+          while (val === true && i <= intStr.length)
+          {
+              if (intStr [i] === intStr [0] && charArray.indexOf(intStr[i])>= 0) 
+              //Is legal letter and the first one
+              {
+                val = false;
+              }
+
+              else if (intStr [i] === intStr [intStr.length-1] && charArray.indexOf(intStr[i])>= 0)
+              //Is legal letter and the last one
+              {
+                val = false;
+              }
+
+               else if (charArray.indexOf(intStr[i]) < 0)
+
+              {
+                val = true;
+              }
+
+              else if (charArray.indexOf(intStr[i]) >= 0 && intStr[i+1] === "+" && intStr[i-1] === "+" )
+
+              {
+                val = true;
+              }
+
+              else
+              {
+                val = false;
+              }
+
+
+          }
+
+          return val;
+      }  
+
+    function chargeChar()
+      ////Charge legal letters
+      {
+
+        var char = [null]
+        ////Lowercase
+        char.push('a');
+        for (var i = 1; i <= 25 ; i++)
+            {
+              char.push(nextChar('a', i));
+            }
+         ////Capital letters
+         char.push('A');
+        for (var i = 1; i <= 25 ; i++)
+            {
+              char.push(nextChar('A', i));
+            }
+
+          function nextChar(letter, j)
+            {
+               return String.fromCharCode(letter.charCodeAt(0) + j);
+            }
+         return char;
+        }
+
+
+
+
+
   return str; 
          
 }
 
-
-
-
-
-
-
-
-
+  
 
 </script>
 
