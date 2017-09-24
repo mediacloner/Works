@@ -6,87 +6,27 @@
 
 
 <script>
-//https://coderbyte.com/editor/Letter%20Capitalize:JavaScript
+//https://coderbyte.com/editor/Simple%20Symbols:JavaScript
 
 
 /*
-Using the JavaScript language, have the function LetterCapitalize(str) take the str parameter being passed and capitalize the first letter of each word. Words will be separated by only one space. 
+Using the JavaScript language, have the function SimpleSymbols(str) take the str parameter being passed and determine if it is an acceptable sequence by either returning the string true or false. The str parameter will be composed of + and = symbols with several letters between them (ie. ++d+===+c++==a) and for the string to be true each letter must be surrounded by a + symbol. So the string to the left would be false. The string will not be empty and will have at least one letter. 
 Sample Test Cases
-Input:"hello world"
-Output:"Hello World"
+Input:"+d+=3=+s+"
+Output:"true"
 
-Input:"i ran there"
-Output:"I Ran There"
+Input:"f++d+"
+Output:"false"
 */
 
-console.log("Output " + LetterCapitalize("i ran there"));
+console.log("Output " + SimpleSymbols("+d+=3=+s+"));
 
-  function LetterCapitalize(str)
-  {
-       	var charArray = chargeChar();
+  function SimpleSymbols(str) { 
 
-       	var result = capitalizeStr(str);
-
-         function capitalizeStr(capLet)
-        {
-        	var intResult = '';
-         	for (var i = 0; i<=capLet.length-1; i++ )
-
-        	{
-           		if (  i === 0 && charArray.indexOf(capLet[i]) >= 0) //First && Legal Letter
-
-           		{
-           			intResult = intResult + (capLetter(capLet[i]));
-           		}
-
-           		else if (charArray.indexOf(capLet[i]) >= 0 && capLet[i-1] === " " ) // Legal Letter && concatenate with space.
-              	{
-                	intResult = intResult + (capLetter(capLet[i]));
-              	}
-           
-           		else
-           		{
-             		intResult = intResult + (capLet[i]);
-           		}
-        	
-        		function capLetter(letter)
-               	{
-            		return String.fromCharCode(letter.charCodeAt(0) - 32);
-                }
-
-          	}
-          	
-          	return intResult;
-        }
-
-
-       function chargeChar()
-      ////Charge legal letters
-      {
-
-        var char = [null]
-        ////Lowercase
-        char.push('a');
-	      for (var i = 1; i <= 25 ; i++)
-	          {
-              char.push(nextChar('a', i));
-            }
-         ////Capital letters
-	       char.push('A');
-	       for (var i = 1; i <= 25 ; i++)
-	          {
-		          char.push(nextChar('A', i));
-	          }
-
-          function nextChar(letter, j)
-            {
-               return String.fromCharCode(letter.charCodeAt(0) + j);
-            }
-         return char;
-        }
-
-   	return result;
-  }
+  // code goes here  
+  return str; 
+         
+}
 
 
 
