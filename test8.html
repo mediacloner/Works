@@ -19,12 +19,31 @@ Input:67 & num2 = 67
 Output:"-1"
 */
 
-console.log("Validation: " + CheckNums(67,22));
+console.log("Validation: " + CheckNums(70,70));
 
  function CheckNums(num1,num2) 
   { 
-    
-      
+    var val = '';
+    switch (true) 
+      {
+            case (num1 == num2):
+              var val = '-1';
+              break;
+
+            case (num1 <= num2):
+              var val = 'true';
+              break;
+
+            case (num1 >= num2):
+              var val = 'false';
+              break;
+
+            default:
+              var val = 'error';
+              break;
+      }  
+
+    return val;    
     
   }
          
